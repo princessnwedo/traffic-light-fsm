@@ -39,6 +39,7 @@ typedef enum {
     GREEN,
     AMBER
 } State;
+```
 
 Timing
 	•	Each state persists for a defined duration to simulate real-world behaviour
