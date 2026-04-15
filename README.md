@@ -41,16 +41,16 @@ typedef enum {
 } State;
 ```
 
-Timing
-	•	Each state persists for a defined duration to simulate real-world behaviour
-	•	RED → 5 seconds
-	•	RED_AMBER → 1 second
-	•	GREEN → 5 seconds
-	•	AMBER → 2 seconds
+### Timing
+Each state persists for a defined duration to simulate real-world behaviour
+- RED → 5 seconds
+- RED_AMBER → 1 second
+- GREEN → 5 seconds
+- AMBER → 2 seconds
 
-⸻
+---
 
-Pedestrian Request
+### Pedestrian Request
 	•	The system includes a simulated pedestrian button
 	•	The user can request a crossing while the light is GREEN
 	•	The request persists until it is served
@@ -59,9 +59,9 @@ Pedestrian Request
 	•	WALK lasts 5 seconds
 	•	The request is cleared after WALK completes
 
-⸻
+---
 
-Control Flow
+### Control Flow
 	•	Display current traffic light state
 	•	Accept pedestrian input when the state is GREEN
 	•	Wait for the duration of the current state
@@ -70,9 +70,9 @@ Control Flow
 	•	Clear the request
 	•	Transition to the next state
 
-⸻
+---
 
-Design Decisions
+### Design Decisions
 	•	I used switch statements because I’m working with a fixed set of known states, which maps naturally to a finite state machine
 	•	In getDelay, returning 0 is a safe fallback since it just results in no delay
 	•	In updateState, returning 0 would correspond to a valid state (RED), so it could unintentionally change system behaviour
@@ -85,9 +85,9 @@ Design Decisions
 	•	For this version, I kept the traffic-light FSM focused on vehicle states and treated WALK as an additional output during RED
 	•	This allowed incremental extension without overcomplicating the initial design
 
-⸻
+---
 
-Concepts Demonstrated
+### Concepts Demonstrated
 	•	Finite State Machines (FSM)
 	•	Deterministic system design
 	•	Modular programming (separation of concerns)
@@ -95,16 +95,16 @@ Concepts Demonstrated
 	•	Event-driven input handling
 	•	Real-world system modelling
 
-⸻
+---
 
-Notes
+### Notes
 	•	This is a simulation, not a real-time embedded system
 	•	Pedestrian input is manually triggered via console input
 	•	Asynchronous behaviour is simulated rather than implemented with concurrency
 
-⸻
+---
 
-Future Improvements
+### Future Improvements
 	•	Continuous loop instead of fixed iterations
 	•	More realistic pedestrian signalling (WALK / DON'T WALK)
 	•	Multiple pedestrian crossings
